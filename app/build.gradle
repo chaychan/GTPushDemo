@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        applicationId "com.chaychan.getuipushdemo"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+
+        manifestPlaceholders = [
+                GETUI_APP_ID : "0SkbWZcgrV8Rze7NkAbKJ7",
+                GETUI_APP_KEY : "JrtaNbM2yB8b37vwPOVtD5",
+                GETUI_APP_SECRET : "XyrfzhBuG7AtIp3liNV2q6"
+        ]
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86","x86_64"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.getui:sdk:2.10.2.0'
+    compile 'com.android.support:support-v4:+'
+}
